@@ -158,7 +158,7 @@ do
     }
 }
 while(time()==$start);
-$avg =  round(1000 / $count, 4);
+$avg =  round(1 / $count, 4);
 print "<li>$count get_record calls on the course table (Each Database SELECT transaction took $avg seconds on average)</li>";
 flush();
 
@@ -186,7 +186,7 @@ do
     }
 }
 while(time()==$start);
-$avg =  round(1000 / $count, 4);
+$avg =  round(1 / $count, 4);
 print "<li>$count insert_record calls on the course table (Each Database Insert transaction took $avg seconds on average)</li>";
 flush();
 
@@ -211,7 +211,7 @@ do
 }
 while(time()==$start);
 
-$avg =  round(1000 / $count, 4);
+$avg =  round(1 / $count, 4);
 print "<li>$count update_record calls on the course table (Each Database Update transaction took $avg seconds on average)</li>";
 flush();
 
