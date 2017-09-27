@@ -158,7 +158,8 @@ do
     }
 }
 while(time()==$start);
-print "<li>$count get_record calls on the course table</li>";
+$avg =  round(1000 / $count, 4);
+print "<li>$count get_record calls on the course table (Each Database SELECT transaction took $avg seconds on average)</li>";
 flush();
 
 $newrecord=new StdClass;
@@ -185,7 +186,8 @@ do
     }
 }
 while(time()==$start);
-print "<li>$count insert_record calls on the course table</li>";
+$avg =  round(1000 / $count, 4);
+print "<li>$count insert_record calls on the course table (Each Database Insert transaction took $avg seconds on average)</li>";
 flush();
 
 
@@ -208,7 +210,9 @@ do
     }
 }
 while(time()==$start);
-print "<li>$count update_record calls on the course table</li>";
+
+$avg =  round(1000 / $count, 4);
+print "<li>$count update_record calls on the course table (Each Database Update transaction took $avg seconds on average)</li>";
 flush();
 
 $del_start = microtime_float();
@@ -220,11 +224,11 @@ for($count=0;$count<count($ids);$count++) {
 }
 $del_end = microtime_float();
 $time = $del_end - $del_start;
-print "<li>" . number_format($time, 2) . " seconds to delete $count course entries (test courses)</li>";
+print "<li>" . number_format($time, 2) . " seconds to delete $count course entries (deleting the speedtest courses only)</li>";
 
 ?>
 </ul>
-<?
+<?php
 
 $time_end = microtime_float();
 $time = $time_end - $time_start;
