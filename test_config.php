@@ -14,6 +14,16 @@ $login_duration = (microtime(true) - $start);
 // Output the data
 echo "Config & login check took: ".number_format($login_duration, 12);
 
+
+$PAGE->set_url('/', $urlparams);
+$PAGE->set_pagelayout('frontpage');
+$PAGE->set_other_editing_capability('moodle/course:update');
+$PAGE->set_other_editing_capability('moodle/course:manageactivities');
+$PAGE->set_other_editing_capability('moodle/course:activityvisibility');
+// Prevent caching of this page to stop confusion when changing page after making AJAX changes.
+$PAGE->set_cacheable(false);
+
+
 $start = microtime(true);
 $PAGE->set_pagetype('site-index');
 $PAGE->set_docs_path('');
