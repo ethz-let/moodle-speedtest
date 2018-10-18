@@ -5,7 +5,7 @@
  */
 $memcached = new Memcached();
 $memcached->addServer('127.0.0.1', 11211);
-$name = 'testkey';
+$name = 'ETHtestKey';
 $ttl = 10;
 $data = sha1(time());
 $memcached->set($name, $data, $ttl);
