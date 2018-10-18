@@ -12,7 +12,7 @@ header('Content-type: text/plain');
 ini_set('session.save_handler', 'memcached');
 ini_set('session.save_path',    '172.31.91.50:11212');
 
-ini_set('session.save_path',$CFG->dataroot. '/sessions/');
+#ini_set('session.save_path',$CFG->dataroot. '/sessions/');
 ini_set('session.gc_probability', 1);
 ini_set('session.gc_divisor', 10);
 ini_set('session.gc_maxlifetime', 3000);
