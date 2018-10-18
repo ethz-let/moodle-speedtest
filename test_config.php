@@ -1,6 +1,9 @@
 <?php
  $start = microtime(true);
 require_once(dirname(__FILE__).'/config.php');
+require_once($CFG->dirroot .'/course/lib.php');
+require_once($CFG->libdir .'/filelib.php');
+
 
 // Output the data
 
@@ -10,3 +13,19 @@ $login_duration = (microtime(true) - $start);
  
 // Output the data
 echo "Config & login check took: ".number_format($login_duration, 12);
+
+$start = microtime(true);
+$PAGE->set_pagetype('site-index');
+$PAGE->set_docs_path('');
+$editing = $PAGE->user_is_editing();
+$PAGE->set_title($SITE->fullname);
+$PAGE->set_heading($SITE->fullname);
+$courserenderer = $PAGE->get_renderer('core', 'course');
+echo $OUTPUT->header();
+
+// End profiling
+$header_duration = (microtime(true) - $start);
+
+// Output the data
+echo "Header took: ".number_format($header_duration, 12);
+
