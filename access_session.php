@@ -1,5 +1,5 @@
 <?php
-require_once("");
+
 session_start();
 $hey = "THIS IS A TEST OF ACCESS SPEEDS"; //our variable
 $_SESSION['hey'] = $hey; //out session variable
