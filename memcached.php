@@ -9,9 +9,9 @@ $name = 'testkey';
 $ttl = 10;
 $data = sha1(time());
 $memcached->set($name, $data, $ttl);
-echo date('His') . ': key "' . $name . '" set to "' . $data . '" with ttl ' . $ttl . PHP_EOL;
+echo date('His') . ': key "' . $name . '" set to "' . $data . '" with ttl ' . $ttl . '<br />';
 for ($i = 0; $i < ($ttl + 5); $i ++) {
   $res = $memcached->get($name);
-  echo date('His') . ': key "' . $name . '" data is "' . $res . '" and that is ' . ($res == $data ? 'a match' : 'not a match') . PHP_EOL;
+  echo date('His') . ': key "' . $name . '" data is "' . $res . '" and that is ' . ($res == $data ? 'a match' : 'not a match') . '<br />';
   sleep(1);
 }
