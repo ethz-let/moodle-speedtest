@@ -1,5 +1,14 @@
 <?php
 
+require_once(dirname(__FILE__).'/config.php');
+// Start profiling
+$start = microtime(true);
+ 
+// Adjust session config
+//ini_set('session.save_handler', 'memcached');
+//ini_set('session.save_path',    '172.31.91.50:11212');
+ini_set('session.save_path',$CFG->dataroot. '/sessions/');
+
 session_start();
 $hey = "THIS IS A TEST OF ACCESS SPEEDS"; //our variable
 $_SESSION['hey'] = $hey; //out session variable
